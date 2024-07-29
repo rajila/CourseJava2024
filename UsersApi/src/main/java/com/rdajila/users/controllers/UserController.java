@@ -4,11 +4,13 @@
  */
 package com.rdajila.users.controllers;
 
+import com.rdajila.users.TestProperties;
 import com.rdajila.users.bll.IUsuarioService;
 import com.rdajila.users.dr.UsuarioDr;
 import com.rdajila.users.models.Usuario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -28,8 +30,20 @@ public class UserController {
     @Autowired
     private IUsuarioService _servicio;
     
+    @Autowired
+    private TestProperties testProperties;
+    
+    @Autowired
+    private Environment environment;
+    
     @GetMapping
     public List<Usuario> getAll() {
+        String song = environment.getProperty("test.song");
+        String song1 = testProperties.getSong();
+        System.out.println("ddddd");
+        System.out.println(song);
+        System.out.println(song1);
+        System.out.println(environment.getProperty("spring.datasource.username"));
         return _servicio.getAll();
     }
     
