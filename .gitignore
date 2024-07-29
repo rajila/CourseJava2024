@@ -1,3 +1,4 @@
+AppConsola/.idea/
 AppConsola/.metadata
 AppConsola/bin/
 AppConsola/tmp/
@@ -22,4 +23,6 @@ nbbuild/
 
 .DS_Store
 
-AppJsp/target/
+/AppJsp/target/
+/AppJsp/.idea/
+/AppConsola/target/
